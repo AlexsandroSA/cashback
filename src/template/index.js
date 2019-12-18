@@ -21,6 +21,7 @@ function Template({ children, showLogout, showLogin, showRegister }) {
                         </Link>
                     </Logo>
                     <HeaderActions>
+                        <a className="button button-clear" href="https://alexsandro-sa.com.br/" target="black">Sobre</a>
                         {showLogin && <Link to={webRouter.LOGIN} className="button button-outline">Login</Link>}
                         {showRegister && <Link to={webRouter.REGISTER} className="button button-outline">Cadastro</Link>}
                         {showLogout && <button onClick={() => logout()} className="button button-outline">Sair</button>}
