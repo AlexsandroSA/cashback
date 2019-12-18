@@ -1,0 +1,10 @@
+{
+    "sales": [
+      { "code": 1, "title": "json-server", "author": "typicode" },
+      { "code": 2, "title": "json-server", "author": "typicode" },
+      { "code": 3, "title": "json-server", "author": "typicode" }
+    ],
+    "user": [
+        { "email": "admin@mail.com.br", "password": "123456" }
+    ]
+  }

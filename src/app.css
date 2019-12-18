@@ -1,0 +1,31 @@
+html, body, #root {
+    width: calc(100vw - 16px);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fff;
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bitter', serif;
+}
+
+main section {
+    margin-top: 24px;
+}
+
+input {
+    margin-bottom: 0;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+    color: #ccc;
+}
+.button:disabled:hover {
+    color: gold;
+}
