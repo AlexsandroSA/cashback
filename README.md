@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# cashback
+
+Demo: [https://bcash.herokuapp.com/](https://bcash.herokuapp.com/)
 
 ## Available Scripts
 
