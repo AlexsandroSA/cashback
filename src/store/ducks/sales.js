@@ -1,3 +1,4 @@
+import { getCashback } from '../../api/services/sales.service';
 import { loadingState } from '../../utils/enums';
 
 // Action Types
@@ -69,17 +70,22 @@ export const createSaleAction = ({
     date,
     cashbackPersent = '0',
     status = 'processing',
-}) =>  (dispatch, getState) => {
+}) =>  async (dispatch, getState) => {
     dispatch({ type: SALES_CREATE_REQUEST });
 
     try {
-        const { sales } = getState();
+        const { sales, auth } = getState();
+        const { data: {
+            cpf,
+        } } = auth;
+
+        const cashback = await getCashback(cpf);
 
         const newSale = {
             code,
             value,
             date,
-            cashbackPersent,
+            cashbackPersent: cashback,
             status,
         };
 

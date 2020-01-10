@@ -7,6 +7,13 @@ export function parserToMoney(value = 0) {
     return str;
 }
 
+export function removeSpecialCharacters(value = '') {
+    if (!value) return '';
+
+    return value.replace(/\W+/g, "");
+}
+
 export default {
     parserToMoney,
+    removeSpecialCharacters,
 };
