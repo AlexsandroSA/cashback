@@ -73,12 +73,12 @@ export const createSaleAction = ({
 }) =>  async (dispatch, getState) => {
     dispatch({ type: SALES_CREATE_REQUEST });
 
-    try {
-        const { sales, auth } = getState();
-        const { data: {
-            cpf,
-        } } = auth;
+    const { sales, auth } = getState();
+    const { data: {
+        cpf,
+    } } = auth;
 
+    try {
         const cashback = await getCashback(cpf);
 
         const newSale = {
@@ -90,10 +90,22 @@ export const createSaleAction = ({
         };
 
         const payload = [ ...sales.data, newSale ];
-
         dispatch({ type: SALES_CREATE_SUCCESS, payload });
     } catch(err) {
-        dispatch({ type: SALES_CREATE_FAILURE, payload: err });
+        const newSale = {
+            code,
+            value,
+            date,
+            cashbackPersent,
+            status,
+        };
+
+        const payload = [ ...sales.data, newSale ];
+        dispatch({ type: SALES_CREATE_SUCCESS, payload });
+
+        // TODO: Remove afert resolve cors api
+        // const error = { status: 500, message: err.message || 'Não foi possivel cadastrar sua compra tente mais tarde' };
+        // dispatch({ type: SALES_CREATE_FAILURE, payload: error });
     }
 }
 
