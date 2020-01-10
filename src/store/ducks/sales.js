@@ -79,7 +79,8 @@ export const createSaleAction = ({
             cpf,
         } } = auth;
 
-        const cashback = await getCashback(cpf);
+        // const cashback = await getCashback(cpf); // CORS
+        const cashback = 0;
 
         const newSale = {
             code,
