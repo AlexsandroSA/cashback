@@ -52,7 +52,7 @@ export default function reducer(state = initialState, action) {
     }
 }
 
-export const registerAction = ({ name, cpf, email, password }) =>  (dispatch, getState) => {
+export const registerAction = ({ name, cpf, email, password }) => (dispatch, getState) => {
     dispatch({ type: USERS_REQUEST  });
 
     try {
@@ -74,7 +74,12 @@ export const registerAction = ({ name, cpf, email, password }) =>  (dispatch, ge
 
         dispatch({ type: USERS_SUCCESS, payload });
     } catch(err) {
-        dispatch({ type: USERS_FAILURE, payload: err });
+        const error = {
+            message: err.message || 'Error',
+            status: 500,
+        };
+
+        dispatch({ type: USERS_FAILURE, payload: error });
     }
 }
 

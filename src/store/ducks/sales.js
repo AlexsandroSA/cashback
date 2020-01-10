@@ -93,7 +93,6 @@ export const createSaleAction = ({
 
 export const editSaleAction = (sale) => (dispatch, getState) => {
     const { sales } = getState();
-    console.log(sale.code)
 
     const payload = sales.data.map(s => {
         if (s.code === sale.code) {

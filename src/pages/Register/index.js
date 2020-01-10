@@ -109,7 +109,7 @@ function RegisterPage({ register, resetRegister, users }) {
                     />
 
                     <div className="float-right">
-                        <button type="submit">Cadastra-se</button>
+                        <button type="submit" id="submit">Cadastra-se</button>
                     </div>
                 </form>
             </section>

@@ -17,9 +17,6 @@ function Group({ data, remove, edit }) {
           <p><b>% de cashback</b>: {item.cashbackPersent}</p>
           <p><b>Status</b>: {saleStatus[item.status]}</p>
 
-          {console.log(item.status)}
-          {console.warn(item.status === saleStatus.processing)}
-
           <ListActions className="float-right">
             {item.status === 'processing' && (
               <button  className="button button-clear button-delete" onClick={() => remove(item.code)}>Deletar</button>
