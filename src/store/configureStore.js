@@ -17,7 +17,7 @@ function getMiddlewares() {
 }
 
 function getComposedEnhancers(enhancers) {
-  return compose(...enhancers,  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()    );
+  return compose(...enhancers);
 }
 
 export default function configureStore(preloadedState = {}) {
@@ -28,7 +28,7 @@ export default function configureStore(preloadedState = {}) {
   const composedEnhancers = getComposedEnhancers(enhancers);
 
   const persistedReducer = persistReducer(persistConfig, rootReducer);
-  const store = createStore(persistedReducer, preloadedState, composedEnhancers, );
+  const store = createStore(persistedReducer, preloadedState, composedEnhancers);
   const persistor = persistStore(store);
 
   return { store, persistor };
